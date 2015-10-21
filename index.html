@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="Todo">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple todo list app</title>
+  <link rel="stylesheet" href="./assets/css/todo.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="./app/todo.js"></script>
+</head>
+<body>
+  <div class="wrapper" ng-controller="MainCtrl">
+    <h1>Simple todo list</h1>
+    <h2>Tasks list</h2>
+    <div class="undone">
+      <h3>Undone</h3>
+      <ul class="tasksList">
+        <li ng-repeat="task in tasks" class="tasksList-item tasksList-item--done-{{ task.done }}">
+          <input type="checkbox" ng-model="task.done">
+          <span>{{ task.title }}</span>
+          <span>{{ task.description }}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="done">
+      <h3>Done</h3>
+    </div>
+    <form class="addTask">
+      <div>
+        <label for="title" class="addTask-label">Title:</label>
+        <input type="text" id="title" required>
+      </div>
+      <div>
+        <label for="desc" class="addTask-label">Description:</label>
+        <input type="text" id="desc" required>
+      </div>
+      <div>
+        <input type="submit" value="Add">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
