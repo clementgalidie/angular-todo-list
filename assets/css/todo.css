@@ -1,13 +1,29 @@
-html,
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
 body {
   height: 100%;
   margin: 0;
-  padding: 0;
+  font-size: 1.6rem;
 }
 
 .wrapper {
-  width: 960px;
+  width: 96rem;
   margin: 0 auto;
+}
+
+.wrapper-mainTitle {
+  font-size: 3.2rem;
+}
+
+.wrapper-subTitle {
+  font-size: 2.8rem;
+}
+
+.undone-title {
+  font-size: 2.4rem;
 }
 
 .tasksList {
@@ -16,7 +32,7 @@ body {
 }
 
 .tasksList-item:not(:first-child) {
-  margin-top: 5px;
+  margin-top: .5rem;
 }
 
 .tasksList-item--done-true {
@@ -24,13 +40,49 @@ body {
   color: #c7c7c7;
 }
 
+.tasksList-input:hover {
+  cursor: pointer;
+}
+
 .addTask {
-  width: 300px;
+  display: inline-block;
+}
+
+.addTask-title {
+  font-size: 2.4rem;
+}
+
+.addTask-wrapper {
+  position: relative;
+}
+
+.addTask-wrapper:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.addTask-spanInput {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+/* Invalid input */
+.addTask-input.ng-invalid.ng-touched + .addTask-spanInput::after {
+  content: '\274C';
+  display: block;
+}
+
+/* Valid input */
+.addTask-input.ng-valid.ng-touched + .addTask-spanInput::after {
+  content: '\2713';
+  display: block;
+  color: #008000;
 }
 
 .addTask-label {
-  display: block;
-  margin: 5px 0;
+  display: inline-block;
+  width: 10rem;
 }
 
 .addTask-label:hover {
