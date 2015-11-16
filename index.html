@@ -9,32 +9,32 @@
 </head>
 <body>
   <div class="wrapper" ng-controller="MainCtrl">
-    <h1>Simple todo list</h1>
-    <h2>Tasks list</h2>
+    <h1 class="wrapper-mainTitle">Simple todo list</h1>
+    <h2 class="wrapper-subTitle">Tasks list</h2>
     <div class="undone">
-      <h3>Undone</h3>
+      <h3 class="undone-title">Tasks list</h3>
       <ul class="tasksList">
         <li ng-repeat="task in tasks" class="tasksList-item tasksList-item--done-{{ task.done }}">
-          <input type="checkbox" ng-model="task.done">
+          <input type="checkbox" class="tasksList-input" ng-model="task.done">
           <span>{{ task.title }}</span>
           <span>{{ task.description }}</span>
         </li>
       </ul>
     </div>
-    <div class="done">
-      <h3>Done</h3>
-    </div>
-    <form class="addTask">
-      <div>
+    <form class="addTask" novalidate>
+      <h3 class="addTask-title">Add a task</h3>
+      <div class="addTask-wrapper">
         <label for="title" class="addTask-label">Title:</label>
-        <input type="text" id="title" required>
+        <input type="text" id="title" class="addTask-input" ng-model="task.title" required>
+        <span class="addTask-spanInput"></span>
       </div>
-      <div>
+      <div class="addTask-wrapper">
         <label for="desc" class="addTask-label">Description:</label>
-        <input type="text" id="desc" required>
+        <input type="text" id="desc" class="addTask-input" ng-model="task.desc" required>
+        <span class="addTask-spanInput"></span>
       </div>
-      <div>
-        <input type="submit" value="Add">
+      <div class="addTask-wrapper">
+        <input type="submit" value="Add" ng-click="addTask()">
       </div>
     </form>
   </div>
